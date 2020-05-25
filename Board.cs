@@ -57,6 +57,25 @@ namespace Sudoku
             return false;
         }
 
+        private static bool solveWithStyle(Board board)
+        {
+            board.print();
+            Console.Out.WriteLine();
+            int[] gridSpace;
+            if ((gridSpace = findNextZero(board)) == null) return true;
+
+            for (int i = 1; i <= 9; i++)
+            {
+                board.grid[gridSpace[0], gridSpace[1]] = i;
+                if (board.checkGridSpace(gridSpace) == true)
+                    if (solveWithStyle(board) == true) return true;
+            }
+
+            board.grid[gridSpace[0], gridSpace[1]] = 0;
+
+            return false;
+        }
+
         private bool checkGridSpace(int[] gridSpace)
         {
             //Checking the horizontal line
@@ -138,24 +157,38 @@ namespace Sudoku
 
         static void Main()
         {
-                int[,] state = new int[9, 9]
-                {
-                {5, 3, 0, 0, 7, 0, 0, 0, 0},
-                {6, 0, 0, 1, 9, 5, 0, 0, 0},
-                {0, 9, 8, 0, 0, 0, 0, 6, 0},
-                {8, 0, 0, 0, 6, 0, 0, 0, 3},
-                {4, 0, 0, 8, 0, 3, 0, 0, 1},
-                {7, 0, 0, 0, 2, 0, 0, 0, 6},
-                {0, 6, 0, 0, 0, 0, 2, 8, 0},
-                {0, 0, 0, 4, 1, 9, 0, 0, 5},
-                {0, 0, 0, 0, 8, 0, 0, 7, 9}
-                };
-                Board board = new Board(state);
-                board.print();
-                solve(board);
+            //int[,] state = new int[9, 9]
+            //{
+            //    {5, 3, 0, 0, 7, 0, 0, 0, 0},
+            //    {6, 0, 0, 1, 9, 5, 0, 0, 0},
+            //    {0, 9, 8, 0, 0, 0, 0, 6, 0},
+            //    {8, 0, 0, 0, 6, 0, 0, 0, 3},
+            //    {4, 0, 0, 8, 0, 3, 0, 0, 1},
+            //    {7, 0, 0, 0, 2, 0, 0, 0, 6},
+            //    {0, 6, 0, 0, 0, 0, 2, 8, 0},
+            //    {0, 0, 0, 4, 1, 9, 0, 0, 5},
+            //    {0, 0, 0, 0, 8, 0, 0, 7, 9}
+            //};
+            int[,] state = new int[9, 9]
+{
+                {1, 0, 0, 0, 0, 7, 0, 9, 0},
+                {0, 3, 0, 0, 2, 0, 0, 0, 8},
+                {0, 0, 9, 6, 0, 0, 5, 0, 0},
+                {0, 0, 5, 3, 0, 0, 9, 0, 0},
+                {0, 1, 0, 0, 8, 0, 0, 0, 2},
+                {6, 0, 0, 0, 0, 4, 0, 0, 0},
+                {3, 0, 0, 0, 0, 0, 0, 1, 0},
+                {0, 4, 1, 0, 0, 0, 0, 0, 7},
+                {0, 0, 7, 0, 0, 0, 3, 0, 0}
+};
+            Board board = new Board(state);
+            board.print();
+            solve(board);
             Console.Out.WriteLine();
             board.print();
-               
+
+            //solveWithStyle(board);
+
         }
     }
 }
