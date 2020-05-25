@@ -9,3 +9,16 @@ C:\Users\User\source\repos\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.AssemblyInfoInp
 C:\Users\User\source\repos\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.AssemblyInfo.cs
 C:\Users\User\source\repos\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.dll
 C:\Users\User\source\repos\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.pdb
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.exe
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.deps.json
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.runtimeconfig.json
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.runtimeconfig.dev.json
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.dll
+C:\Users\Kim\source\repos\Sudoku\Sudoku\bin\Debug\netcoreapp3.1\Sudoku.pdb
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.csprojAssemblyReference.cache
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.csproj.CoreCompileInputs.cache
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.AssemblyInfoInputs.cache
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.AssemblyInfo.cs
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.dll
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.pdb
+C:\Users\Kim\source\repos\Sudoku\Sudoku\obj\Debug\netcoreapp3.1\Sudoku.genruntimeconfig.cache

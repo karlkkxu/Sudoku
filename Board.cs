@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Sudoku
 {
@@ -57,11 +59,85 @@ namespace Sudoku
 
         private bool checkGridSpace(int[] gridSpace)
         {
-            
+            //Checking the horizontal line
+            HashSet<int> values = new HashSet<int>();
+            for (int i = 0; i < 9; i++)
+            {
+                int currentValue = this.grid[gridSpace[0], i];
+                //Zeroes only mark a space that has not yet been filled, no need to account them since we're checking for
+                //duplicates of values on the row
+                if (currentValue != 0)
+                    //HashSet.Add(x) returns false if x is a duplicate of another value in the set
+                    if (values.Add(currentValue) == false)
+                        //If there's a duplicate value on the board row, it can't be a valid solution
+                        return false;
+            }
+
+            //Checking the vertical line
+            values.Clear();
+            for (int i = 0; i < 9; i++)
+            {
+                int currentValue = this.grid[i, gridSpace[1]];
+                //Zeroes only mark a space that has not yet been filled, no need to account them since we're checking for
+                //duplicates of values on the row
+                if (currentValue != 0)
+                    //HashSet.Add(x) returns false if x is a duplicate of another value in the set
+                    if (values.Add(currentValue) == false)
+                        //If there's a duplicate value on the board row, it can't be a valid solution
+                        return false;
+            }
+
+            //Checking the 3x3 of the space
+
+            //The purpose here is to divide the 9x9 board to a set of 9 3x3 boards
+            //By checking the gridSpace like this we can set the specific coordinates on the board
+            //we must look through for duplicates
+            int startX = 3;
+            int endX = 5;
+            if (gridSpace[0] > 5)
+            {
+                startX = 6;
+                endX = 8;
+            }
+            if (gridSpace[0] < 3)
+            {
+                startX = 0;
+                endX = 2;
+            }
+
+            int startY = 3;
+            int endY = 5;
+            if (gridSpace[1] > 5)
+            {
+                startY = 6;
+                endY = 8;
+            }
+            if (gridSpace[1] < 3)
+            {
+                startY = 0;
+                endY = 2;
+            }
+
+            //Now that we know the 3x3 area the gridspace is in, we can iterate through it and check for duplicates like before
+            values.Clear();
+            for (int i = startX; i <= endX; i++)
+                for (int j = startY; j <= endY; j++)
+                {
+                    int currentValue = this.grid[i, j];
+                    //Zeroes only mark a space that has not yet been filled, no need to account them since we're checking for
+                    //duplicates of values on the row
+                    if (currentValue != 0) 
+                        //HashSet.Add(x) returns false if x is a duplicate of another value in the set
+                        if (values.Add(currentValue) == false)
+                            //If there's a duplicate value on the board row, it can't be a valid solution
+                            return false;
+                }
+
+            return true;
         }
 
         static void Main()
-            {
+        {
                 int[,] state = new int[9, 9]
                 {
                 {5, 3, 0, 0, 7, 0, 0, 0, 0},
@@ -77,6 +153,9 @@ namespace Sudoku
                 Board board = new Board(state);
                 board.print();
                 solve(board);
-            }
+            Console.Out.WriteLine();
+            board.print();
+               
+        }
     }
 }
